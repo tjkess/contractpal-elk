@@ -23,3 +23,17 @@ type=rpm-md <br/>
 
 * installl logstash 
 `sudo yum install -y logstash`
+
+* install gem 
+`sudo yum install gem`
+
+* clone amazon es plugin 
+`git clone https://github.com/awslabs/logstash-output-amazon_es.git`
+
+* build it 
+
+`cd logstash-output-amazon_es`
+`gem build logstash-output-amazon_es.gemspec`
+`mv logstash-output-amazon_es.gem /amazon_es.gem`
+`cd /usr/share/logstash`
+`bin/logstash-plugin install /amazon_es.gem`
