@@ -58,4 +58,5 @@ output {
         aws_secret_access_key => 'secret'
        # index => "production-logs-%{+YYYY.MM.dd}"
     }
-}```
+}
+```
