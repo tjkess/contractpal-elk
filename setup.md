@@ -32,8 +32,8 @@ type=rpm-md <br/>
 
 * build it 
 
-`cd logstash-output-amazon_es`
-`gem build logstash-output-amazon_es.gemspec`
-`mv logstash-output-amazon_es.gem /amazon_es.gem`
-`cd /usr/share/logstash`
+`cd logstash-output-amazon_es` <br/>
+`gem build logstash-output-amazon_es.gemspec` <br/>
+`mv logstash-output-amazon_es.gem /amazon_es.gem` <br/>
+`cd /usr/share/logstash` <br/>
 `bin/logstash-plugin install /amazon_es.gem`
