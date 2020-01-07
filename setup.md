@@ -49,4 +49,4 @@ output {
 `sudo systemctl start logstash` <br/>
 
 
-
+[aws es output plugin](https://github.com/awslabs/logstash-output-amazon_es)
