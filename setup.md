@@ -1,4 +1,4 @@
-## installing logtash 
+## installing logtash on aws ec2 with amazon linux ami
 
 ### run the following commands 
 
