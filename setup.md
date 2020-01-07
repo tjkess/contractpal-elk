@@ -37,3 +37,25 @@ type=rpm-md <br/>
 `mv logstash-output-amazon_es.gem /amazon_es.gem` <br/>
 `cd /usr/share/logstash` <br/>
 `bin/logstash-plugin install /amazon_es.gem`
+
+
+* create file this file `touch /etc/logstash/conf.d/logstash.conf`
+
+```input{
+    s3 {
+        bucket => "elk-test-bucke"
+        access_key_id => "key"
+        secret_access_key => "secret"
+        region => "us-west-2"
+    }
+}
+output {
+    amazon_es {
+        hosts => ["elasticsearch/endpoint"]
+        region => "us-west-2"
+        # aws_access_key_id and aws_secret_access_key are optional if instance profile is configured
+        aws_access_key_id => 'key'
+        aws_secret_access_key => 'secret'
+       # index => "production-logs-%{+YYYY.MM.dd}"
+    }
+}```
