@@ -35,6 +35,7 @@ input{
         access_key_id => "key"
         secret_access_key => "secret"
         region => "us-west-2"
+        interval => "10"
     }
 }
 output {
@@ -45,3 +46,7 @@ output {
     }
 }
 ```
+`sudo systemctl start logstash` <br/>
+
+
+
