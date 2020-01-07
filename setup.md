@@ -41,7 +41,8 @@ type=rpm-md <br/>
 
 * create file this file `touch /etc/logstash/conf.d/logstash.conf`
 
-```input{
+```
+input{
     s3 {
         bucket => "elk-test-bucke"
         access_key_id => "key"
