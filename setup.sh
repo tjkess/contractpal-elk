@@ -1,3 +1,4 @@
+#!/bin/sh
 sudo yum update -y
 
 sudo yum install -y java-1.8.0-openjdk
@@ -18,7 +19,7 @@ type=rpm-md' > /etc/yum.repos.d/logstash.repo
 sudo yum install -y logstash
 
 touch /etc/logstash/conf.d/logstash.conf
-
+# the conf for logstash might need to be changed. make changes as needed before running the script
 echo 'input{
     s3 {
         bucket => "elk-test-bucke"
