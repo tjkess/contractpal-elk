@@ -31,18 +31,30 @@ type=rpm-md
 ```
 input{
     s3 {
-        bucket => "elk-test-bucke"
-        access_key_id => "key"
-        secret_access_key => "secret"
+        bucket => "BUCKET NAME HERE"
+        access_key_id => "ACCESS KEY HERE"
+        secret_access_key => "SECRET KEY HERE"
         region => "us-west-2"
         interval => "10"
     }
 }
+
+filter {
+    mutate {
+	gsub => ["message","\|"," "]
+        gsub => ["message","\["," "]
+        gsub => ["message","\]"," "]
+    }
+    grok{
+	match => {'message' => '%{URIHOST:host} %{IP:first} %{SYSLOGTIMESTAMP:timestamp} %{USERNAME:hi} %{WORD:log}: %{URIHOST:secondhost} %{IP:publicIP}'}
+    }
+}
+
 output {
     elasticsearch {
-        hosts => ["elasticsearch/endpoint:443"]
+        hosts => ["ELASTICSEARCH END POINT:443"]
         ssl => "true"
-       # index => "production-logs-%{+YYYY.MM.dd}"
+        index => "production-logs-%{+YYYY.MM.dd}"
     }
 }
 ```
