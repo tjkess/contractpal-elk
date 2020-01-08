@@ -20,7 +20,7 @@ sudo yum install -y logstash
 
 touch /etc/logstash/conf.d/logstash.conf
 # the conf for logstash might need to be changed. make changes as needed before running the script
-echo 'input{
+echo "input{
     s3 {
         bucket => "BUCKET NAME HERE"
         access_key_id => "ACCESS KEY HERE"
@@ -44,9 +44,9 @@ filter {
 output {
     elasticsearch {
         hosts => ["ELASTICSEARCH END POINT:443"]
-        ssl => "true"
+        ssl => 'true'
         index => "production-logs-%{+YYYY.MM.dd}"
     }
-}' > /etc/logstash/conf.d/logstash.conf
+}" > /etc/logstash/conf.d/logstash.conf
 
 sudo systemctl start logstash
